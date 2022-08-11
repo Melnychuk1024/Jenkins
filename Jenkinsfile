@@ -1,14 +1,17 @@
 pipeline {
-    agent any
+    agent any 
     stages {
-        stage('Deploy') {
+        stage("Stage - 1") {
+            enviroment {
+                NAME = "Dima"
+                SURNAME = "Melnychuk"
+                URL = "./index.html"
+            }
             steps {
-                retry(10) {
-                    sh 'cat flakey-deploy'
-                }
-
-                timeout(time: 3, unit: 'SECONDS') {
-                    sh 'cat flakey-deploy'
+                sh echo "HELLO ${NAME} ${SURNAME}"
+                sh cat #{URL}
+                timeout(time: 10, unit: 'SECONDS') {
+                    sh "printenv"
                 }
             }
         }
