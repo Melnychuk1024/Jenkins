@@ -1,15 +1,15 @@
 pipeline {
     agent any 
-    stages {
-        stage("Stage - 1") {
-            enviroment {
+    enviroment {
                 NAME = "Dima"
                 SURNAME = "Melnychuk"
                 URL_NAME = "index.html"
             }
+    stages {
+        stage("Stage - 1") {
             steps {
                 echo "HELLO ${NAME} ${SURNAME}"
-                cat ${URL_NAME}
+                echo ${URL_NAME}
                 timeout(time: 10, unit: 'SECONDS') {
                     sh "printenv"
                 }
