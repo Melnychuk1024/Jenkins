@@ -6,7 +6,7 @@ pipeline {
                 docker {image 'hello-world:latest'}
             }
             steps {
-                 sh 'sudo docker start hello-world'
+                 sh 'sudo docker run hello-world'
             }
         }
     }
