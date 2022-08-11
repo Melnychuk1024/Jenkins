@@ -5,7 +5,7 @@ pipeline {
             enviroment {
                 NAME = "Dima"
                 SURNAME = "Melnychuk"
-                URL = "./index.html"
+                URL = "index.html"
             }
             steps {
                 sh echo "HELLO ${NAME} ${SURNAME}"
