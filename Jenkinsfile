@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('Build...') {
             agent {
-                docker {image 'node:16.13.1-alpine'}
+                docker {image 'hello-world:latest'}
             }
             steps {
-                 sh 'node --version'
+                 sh 'sudo docker start hello-world'
             }
         }
     }
