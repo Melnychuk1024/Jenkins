@@ -8,8 +8,8 @@ pipeline {
                 URL_NAME = "index.html"
             }
             steps {
-                sh echo "HELLO ${NAME} ${SURNAME}"
-                sh cat ${URL_NAME}
+                echo "HELLO ${NAME} ${SURNAME}"
+                cat ${URL_NAME}
                 timeout(time: 10, unit: 'SECONDS') {
                     sh "printenv"
                 }
