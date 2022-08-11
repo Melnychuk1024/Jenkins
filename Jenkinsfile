@@ -1,22 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Build...') {
+        stage('Deploy') {
             steps {
-                echo "Deploy..."
-            }
-        }
-        stage('Test...') {
-            steps {
-                echo "Test..."
-            }
-        }
-        stage('Deploy')  {
-             agent {
-                docker {image 'hello-world:latest'}
-            }
-            steps {
-                 sh 'sudo docker run hello-world'
+                retry(3) {
+                    sh 'cat flakey-deploy'
+                }
+
+                timeout(time: 3, unit: 'MINUTES') {
+                    sh 'cat flakey-deploy'
+                }
             }
         }
     }
