@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                retry(3) {
+                retry(10) {
                     sh 'cat flakey-deploy'
                 }
 
-                timeout(time: 3, unit: 'MINUTES') {
+                timeout(time: 3, unit: 'SECONDS') {
                     sh 'cat flakey-deploy'
                 }
             }
