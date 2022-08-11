@@ -1,8 +1,18 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build...') {
-            agent {
+            steps {
+                echo "Deploy..."
+            }
+        }
+        stage('Test...') {
+            steps {
+                echo "Test..."
+            }
+        }
+        stage('Deploy')  {
+             agent {
                 docker {image 'hello-world:latest'}
             }
             steps {
