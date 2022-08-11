@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
                  echo "HELLO ${NAME} ${SURNAME}"
-                 sh cat ${URL_NAME}
+                 sh "cat ${URL_NAME}"
                 timeout(time: 10, unit: 'SECONDS') {
                     sh "printenv"
                 }
